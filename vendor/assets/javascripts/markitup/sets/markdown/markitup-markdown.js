@@ -10,8 +10,8 @@
 // -------------------------------------------------------------------
 // Feel free to add more tags
 // -------------------------------------------------------------------
-mySettings = markdownSettings = {
-	previewParserPath: "/markitup/preview",
+mySettings = {
+	previewParserPath:	'/content/parse_textile',
 	onShiftEnter:		{keepDefault:false, openWith:'\n\n'},
 	markupSet: [
 		{name:'First Level Heading', key:'1', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
@@ -20,7 +20,7 @@ mySettings = markdownSettings = {
 		{name:'Heading 4', key:'4', openWith:'#### ', placeHolder:'Your title here...' },
 		{name:'Heading 5', key:'5', openWith:'##### ', placeHolder:'Your title here...' },
 		{name:'Heading 6', key:'6', openWith:'###### ', placeHolder:'Your title here...' },
-		{separator:'---------------' },
+		{separator:'---------------' },		
 		{name:'Bold', key:'B', openWith:'**', closeWith:'**'},
 		{name:'Italic', key:'I', openWith:'_', closeWith:'_'},
 		{separator:'---------------' },
@@ -31,17 +31,16 @@ mySettings = markdownSettings = {
 		{separator:'---------------' },
 		{name:'Picture', key:'P', replaceWith:'![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'},
 		{name:'Link', key:'L', openWith:'[', closeWith:']([![Url:!:http://]!] "[![Title]!]")', placeHolder:'Your text to link here...' },
-		{separator:'---------------'},
+		{separator:'---------------'},	
 		{name:'Quotes', openWith:'> '},
 		{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
-		{separator:'---------------'},
-    {name:'YouTube', key:'Y', openWith:'[YouTubeId-', closeWith:'[![YouTube:!:...]!]]', className:'youtube' },
-    //[[youtube-{video_id}-{width}x{height}]]
-    {separator:'---------------'},
-		{name:'Preview', call:'preview', className:"preview"},
-    {name:'Hide Preview', call: function (){ miu.hidePreview()}, className:'hidePreview'}
+        {name:'YouTube', key:'Y', openWith:'[YouTubeId-', closeWith:'[![YouTube:!:...]!]]', className:'youtube' },
+                //[[youtube-{video_id}-{width}x{height}]]
+        {separator:'---------------'},
+		{name:'Preview', call: 'preview', className:"preview"},
+        {name:'Hide Preview', call: function (){ miu.hidePreview()}, className:'hidePreview'} //TODO jeweils knöpfe austauschen, wenn gedrückt
 	]
-}
+};
 
 // mIu nameSpace to avoid conflict.
 miu = {
@@ -52,9 +51,16 @@ miu = {
 			heading += char;
 		}
 		return '\n'+heading;
-	}
+	},
 
-  hidePreview : function() {
-    $('.markItUpPreviewFrame').remove();
-  }
-}
+    hidePreview : function() {
+      $('.markItUpPreviewFrame').remove();
+//      $('.hidePreview').hide();
+//      $('.preview').show();
+    }
+
+//    handlePreviewIcons: function() {
+//          $('.hidePreview').show();
+//        }
+
+};
