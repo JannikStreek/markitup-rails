@@ -52,7 +52,7 @@ miu = {
 			heading += char;
 		}
 		return '\n'+heading;
-	}
+	},
 
   hidePreview : function() {
     $('.markItUpPreviewFrame').remove();
